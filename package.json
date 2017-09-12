@@ -1,0 +1,23 @@
+{
+  "name": "chat-bot-chia",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chiayenhung/chat-bot-chia.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chiayenhung/chat-bot-chia/issues"
+  },
+  "homepage": "https://github.com/chiayenhung/chat-bot-chia#readme",
+  "dependencies": {
+    "botbuilder": "^3.9.1",
+    "restify": "^5.2.0"
+  }
+}
