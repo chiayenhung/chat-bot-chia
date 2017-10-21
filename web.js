@@ -64,6 +64,7 @@ var connector = new builder.ChatConnector({
   appId: process.env.MICROSOFT_APP_ID,
   appPassword: process.env.MICROSOFT_APP_PASSWORD
 });
+var luisModel = process.env.LUIS_MODEL;
 var bot = new builder.UniversalBot(connector);
 server.post('/api/messages', connector.listen());
 
@@ -86,6 +87,17 @@ bot.beginDialogAction('help', '/help', { matches: /^help/i });
 //=========================================================
 
 bot.dialog('/', [
+  function (session, args, next) {
+    var text = session.message.text;
+    builder.LuisRecognizer.recognize(text, luisModel, function (err, intents) {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log(intents);
+      }
+      next();
+    });
+  },
   function (session) {
     // Send a greeting and show help.
     var card = new builder.HeroCard(session)
